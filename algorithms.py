@@ -1114,7 +1114,7 @@ def swap_material(old_mat_name, new_mat_name, char_name):
 def remove_censors():
 
     my_prefs = bpy.context.preferences.addons.get(__package__, None)
-    if (not my_prefs.preferences.use_censors):
+    if (my_prefs is not None) and (not my_prefs.preferences.use_censors):
         is_char = looking_for_humanoid_obj()
         if is_char[0] == "FOUND":
             char_name = is_char[1]
